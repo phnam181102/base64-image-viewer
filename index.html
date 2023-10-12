@@ -26,6 +26,18 @@
           <img src="data:image/jpeg;base64,${base64}">
         `;
             });
+
+            fetch('https://65266732917d673fd76c2cef.mockapi.io/api/v1/tool')
+                .then((res) => res.json())
+                .then((data) => {
+                    const lastImage = data[data.length - 1].img;
+
+                    imgContainer.innerHTML = `
+        <img src="data:image/jpeg;base64,${lastImage}">`;
+                })
+                .catch((error) =>
+                    console.error('Something went wrong!' + error.message)
+                );
         </script>
     </body>
 </html>
