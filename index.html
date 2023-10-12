@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Base64 Image Viewer</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <h1>Base64 Image Viewer</h1>
+
+        <label>Nhập base64 ảnh:</label>
+        <input type="text" id="base64-input" />
+
+        <button id="submit-btn">Xem ảnh</button>
+
+        <div id="image-container"></div>
+
+        <script>
+            const input = document.getElementById('base64-input');
+            const btn = document.getElementById('submit-btn');
+            const imgContainer = document.getElementById('image-container');
+
+            btn.addEventListener('click', () => {
+                const base64 = input.value;
+                imgContainer.innerHTML = `
+          <img src="data:image/jpeg;base64,${base64}">
+        `;
+            });
+        </script>
+    </body>
+</html>
